@@ -23,14 +23,14 @@ import static java.time.temporal.ChronoUnit.DAYS;
  */
 public class Service {
     //private StudentFileRepository studentFileRepository;
-    private StudentXMLRepo studentFileRepository;
-    private StudentValidator studentValidator;
+    private final StudentXMLRepo studentFileRepository;
+    private final StudentValidator studentValidator;
     //private TemaFileRepository temaFileRepository;
-    private TemaXMLRepo temaFileRepository;
-    private TemaValidator temaValidator;
+    private final TemaXMLRepo temaFileRepository;
+    private final TemaValidator temaValidator;
     //private NotaFileRepository notaFileRepository;
-    private NotaXMLRepo notaFileRepository;
-    private NotaValidator notaValidator;
+    private final NotaXMLRepo notaFileRepository;
+    private final NotaValidator notaValidator;
 
     /**
      * Class Constructor
@@ -68,7 +68,7 @@ public class Service {
      * @return studentul daca acesta a fost sters sau null daca studentul nu exista
      */
     public Student deleteStudent(String id){
-        if(id == null || id.equals("")) {
+        if(id == null || id.isEmpty()) {
             throw new ValidationException("Id-ul nu poate fi null!");
         }
         return studentFileRepository.delete(id);
@@ -80,7 +80,7 @@ public class Service {
      * @return studentul daca acesta exista sau null altfel
      */
     public Student findStudent(String id){
-        if(id == null || id.equals("")){
+        if(id == null || id.isEmpty()){
             throw new ValidationException("Id-ul nu poate fi null!");
         }
         return studentFileRepository.findOne(id);
@@ -119,7 +119,7 @@ public class Service {
      * @return tema daca aceasta a fost stearsa sau null daca tema nu exista
      */
     public Tema deleteTema(String nrTema){
-        if(nrTema == null || nrTema.equals("")) {
+        if(nrTema == null || nrTema.isEmpty()) {
             throw new ValidationException("Id-ul nu poate fi null!");
         }
         return temaFileRepository.delete(nrTema);
@@ -131,7 +131,7 @@ public class Service {
      * @return tema sau null daca aceasta nu exista
      */
     public Tema findTema(String id){
-        if(id == null || id.equals("")){
+        if(id == null || id.isEmpty()){
             throw new ValidationException("Id-ul nu poate fi null!");
         }return temaFileRepository.findOne(id);
     }
@@ -193,7 +193,7 @@ public class Service {
      * @return nota daca aceasta a fost stearsa sau null daca nota nu exista
      */
     public Nota deleteNota(String id){
-        if(id == null || id.equals("")) {
+        if(id == null || id.isEmpty()) {
             throw new ValidationException("Id-ul nu poate fi null!");
         }
         return notaFileRepository.delete(id);
@@ -205,7 +205,7 @@ public class Service {
      * @return nota sau null daca aceasta nu exista
      */
     public Nota findNota(String id){
-        if(id == null || id.equals("")){
+        if(id == null || id.isEmpty()){
             throw new ValidationException("Id-ul nu poate fi null!");
         }
         return notaFileRepository.findOne(id);

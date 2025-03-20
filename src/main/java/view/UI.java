@@ -13,7 +13,7 @@ import java.util.Scanner;
  * Interfata utilizator de tip consola
  */
 public class UI {
-    private Service service;
+    private final Service service;
 
     /**
      * Class constructor
@@ -178,8 +178,7 @@ public class UI {
      */
     private void afisareStudenti() {
         Iterable<Student> all = service.getAllStudenti();
-        all.forEach(student ->
-                System.out.println(student)
+        all.forEach(System.out::println
         );
     }
 
@@ -323,7 +322,7 @@ public class UI {
         //for(Tema tema: all){
         //    System.out.println(tema);
         //}
-        all.forEach(tema -> System.out.println(tema));
+        all.forEach(System.out::println);
     }
 
     /**
@@ -370,7 +369,7 @@ public class UI {
             throw new ValidationException("Nota exista deja!");
         }
         System.out.print("Introduceti nota: ");
-        Double nota = scanner.nextDouble();
+        double nota = scanner.nextDouble();
         System.out.print("Introduceti data predarii temei(format: an-luna-data): ");
         String data = scanner.next();
         String[] date = data.split("-");
@@ -424,8 +423,7 @@ public class UI {
      */
     private void afisareNote() {
         Iterable<Nota> all = service.getAllNote();
-        all.forEach(nota ->
-                System.out.println(nota)
+        all.forEach(System.out::println
         );
     }
 }
