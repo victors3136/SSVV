@@ -77,6 +77,7 @@ public class UI {
             if (comanda == 0) {
                 break;
             } else if (comanda == 1) {
+                // A1.3 -> add student called here
                 adaugaStudent();
             } else if (comanda == 2) {
                 stergeStudent();
@@ -200,6 +201,7 @@ public class UI {
             if (comanda == 0) {
                 break;
             } else if (comanda == 1) {
+                // A1.3 -> add assignment called here
                 adaugaTema();
             }
             else if(comanda==2) {
@@ -341,6 +343,7 @@ public class UI {
             if (comanda == 0) {
                 break;
             } else if (comanda == 1) {
+                // A1.3 -> add grade called here
                 adaugaNota();
             } else if (comanda == 2) {
                 stergeNota();
