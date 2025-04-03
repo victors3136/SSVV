@@ -35,7 +35,7 @@ public class AddStudentFeatureTest {
         final var validStudent = new Student("123", "John Doe", 101, "john.doe@example.com");
         try {
             final var savedStudent = service.addStudent(validStudent);
-            assertNull(savedStudent);
+            assertNull(savedStudent, "Student should be added successfully.");
         } catch (ValidationException e) {
             fail("Validation failed for a valid student.");
         }
