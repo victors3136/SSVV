@@ -1,3 +1,4 @@
+import curent.Curent;
 import domain.Nota;
 import domain.Student;
 import domain.Tema;
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 public class IntegrationTests {
 
     private static Service service;
-    private static final LocalDate DECEMBER_1ST = LocalDate.of(2018, 12, 1);
+    private static final LocalDate FOURTH_WEEK = Curent.getStartDate().plusWeeks(4);
     @BeforeAll
     public static void init() {
         final var filenameTeme = "fisiere_mock/Teme.xml";
@@ -74,7 +75,7 @@ public class IntegrationTests {
         service.addTema(new Tema("2", "tema2", 14, 13));
 
 
-        final var nota = new Nota("2", "2", "2", 9.5, DECEMBER_1ST);
+        final var nota = new Nota("2", "2", "2", 9.5, FOURTH_WEEK);
         Assertions.assertDoesNotThrow(() -> service.addNota(nota, "great job"));
 
         final var fetched = service.findNota("2");
@@ -86,7 +87,7 @@ public class IntegrationTests {
     public void integrationTesting_Full() {
         final var student = new Student("3", "Ana Popescu", 933, "ana@example.com");
         final var tema = new Tema("3", "tema integrata", 14, 13);
-        final var nota = new Nota("3", "3", "3", 10, DECEMBER_1ST);
+        final var nota = new Nota("3", "3", "3", 10, FOURTH_WEEK);
 
         Assertions.assertDoesNotThrow(() -> {
             service.addStudent(student);
@@ -119,7 +120,7 @@ public class IntegrationTests {
     public void incrementalIntegrationTesting_StudentTemaAndNota() {
         incrementalIntegrationTesting_StudentAndTema();
 
-        final var nota = new Nota("4", "4", "4", 8.7, DECEMBER_1ST);
+        final var nota = new Nota("4", "4", "4", 8.7, FOURTH_WEEK);
         Assertions.assertDoesNotThrow(() -> service.addNota(nota, "bine"));
         Assertions.assertNotNull(service.findNota("4"));
     }

@@ -10,3 +10,9 @@ Nota: 8.7
 Predata in saptamana: 9
 Deadline: 14
 Feedback: bine
+
+Tema: 4
+Nota: 8.7
+Predata in saptamana: 4
+Deadline: 14
+Feedback: bine
